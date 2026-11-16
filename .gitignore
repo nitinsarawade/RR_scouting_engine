@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+out/
+*.db
+data_inventory.json
+.env

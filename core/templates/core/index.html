@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajasthan Royals Scouting Engine | SupeRR Selector</title>
+  <!-- <link rel="stylesheet" href="{% static 'core/css/style.css' %}"> -->
+   <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Executive Sidebar -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">RR</div>
+      <div class="brand-text">
+        <h1>Scouting Engine</h1>
+        <span>SupeRR Selector</span>
+      </div>
+    </div>
+
+    <ul class="nav-list" id="navList">
+      <li class="nav-item" data-page="overview">
+        <a href="#/overview">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          </span>
+          <span>Overview</span>
+        </a>
+      </li>
+      <li class="nav-item" data-page="batting">
+        <a href="#/batting">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>
+          </span>
+          <span>Batting Rankings</span>
+        </a>
+      </li>
+      <li class="nav-item" data-page="bowling">
+        <a href="#/bowling">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </span>
+          <span>Bowling Rankings</span>
+        </a>
+      </li>
+      <li class="nav-item" data-page="players">
+        <a href="#/players">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </span>
+          <span>Player Talent Pool</span>
+        </a>
+      </li>
+      <li class="nav-item" data-page="final">
+        <a href="#/final">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </span>
+          <span>Official Top 10 Picks</span>
+        </a>
+      </li>
+      <li class="nav-item" data-page="pressure">
+        <a href="#/pressure">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </span>
+          <span>Methodology</span>
+        </a>
+      </li>
+      <li class="nav-item" data-page="compare">
+        <a href="#/compare">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 3h5v5"></path><path d="M4 20L21 3"></path><path d="M21 16v5h-5"></path><path d="M15 15l6 6"></path><path d="M4 4l5 5"></path></svg>
+          </span>
+          <span>Compare Prospects</span>
+        </a>
+      </li>
+      <li class="nav-item" data-page="competitions">
+        <a href="#/competitions">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+          </span>
+          <span>Competitions</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <div><strong>Rajasthan Royals Analytics</strong></div>
+      <div>IPL & T20I (2022–2026)</div>
+    </div>
+  </aside>
+
+  <!-- Main Work Area -->
+  <div class="main-wrap">
+    <!-- Top Header -->
+    <header class="top-header">
+      <div class="header-left">
+        <div class="header-title" id="pageTitle">Dashboard Overview</div>
+        <div class="header-sub" id="pageSub">High-stakes situational intelligence & uncapped talent scouting</div>
+      </div>
+      <div class="header-right">
+        <!-- Search Input with Vector Icon -->
+        <div class="search-box">
+          <svg class="search-icon-svg" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="quickSearch" class="search-input" placeholder="Search any player..." onkeyup="handleQuickSearch(event)">
+        </div>
+        <div class="status-pill">
+          <div class="status-dot"></div>
+          <span>LIVE ENGINE</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dynamic Content Area -->
+    <main class="content-area" id="contentArea">
+      <div class="spinner-wrap">
+        <div class="spinner"></div>
+        <div>Loading Rajasthan Royals Scouting Engine...</div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Player Profile Modal Backdrop -->
+  <div class="modal-backdrop" id="playerModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title" id="modalPlayerName">Player Profile</div>
+        <button class="modal-close" onclick="closePlayerModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <div class="spinner-wrap">
+          <div class="spinner"></div>
+          <div>Loading profile...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modular Application Logic -->
+  <script src="{% static 'core/js/app.js' %}"></script>
+</body>
+</html>
